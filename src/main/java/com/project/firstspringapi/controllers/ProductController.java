@@ -1,5 +1,6 @@
 package com.project.firstspringapi.controllers;
 
+import com.project.firstspringapi.exceptions.ProductNotFoundException;
 import com.project.firstspringapi.models.Product;
 import com.project.firstspringapi.services.ProductService;
 import org.springframework.http.HttpStatus;
@@ -23,16 +24,19 @@ public class ProductController {
 
     //localhost:8080/products/1
     @GetMapping("/{id}")
-    public ResponseEntity<Product> getProductById(@PathVariable("id") Long id) {
+    public ResponseEntity<Product> getProductById(@PathVariable("id") Long id) throws ProductNotFoundException {
         Product product = productService.getProductById(id);
         ResponseEntity<Product> responseEntity;
-        if (product == null) {
-            responseEntity = new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-            return responseEntity;
-        }
+//        if (product == null) {
+//            responseEntity = new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+//            return responseEntity;
+//        }
 
         responseEntity = new ResponseEntity<>(product, HttpStatus.OK);
         return responseEntity;
+
+
+        //throw new RuntimeException("Something went wrong");
     }
 
     //localhost:8080/products

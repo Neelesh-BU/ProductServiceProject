@@ -1,6 +1,7 @@
 package com.project.firstspringapi.services;
 
 import com.project.firstspringapi.dtos.FakeStoreProductDto;
+import com.project.firstspringapi.exceptions.ProductNotFoundException;
 import com.project.firstspringapi.models.Category;
 import com.project.firstspringapi.models.Product;
 import jakarta.servlet.http.HttpServletResponse;
@@ -41,7 +42,7 @@ public class FakeStoreProductService implements ProductService {
 
 
     @Override
-    public Product getProductById(Long id) {
+    public Product getProductById(Long id) throws ProductNotFoundException {
         //Call FakeStore API here to get the Product with given id.
         FakeStoreProductDto fakeStoreProductDto =
                 restTemplate.getForObject("https://fakestoreapi.com/products/" + id,
@@ -51,7 +52,8 @@ public class FakeStoreProductService implements ProductService {
         //2st param -> Response
 
         if (fakeStoreProductDto == null) {
-            return null;
+            throw new ProductNotFoundException(id, "Product with id" + id + "not found");
+            //return null;
         }
 
 
