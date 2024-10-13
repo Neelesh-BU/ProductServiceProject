@@ -1,14 +1,14 @@
 package com.project.firstspringapi.models;
 
 
+import jakarta.persistence.Entity;
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
+@Entity
 
-
-public class Category {
-    private Long id;
-    private String desc;
+public class Category extends BaseModel {
+    private String title;
 }

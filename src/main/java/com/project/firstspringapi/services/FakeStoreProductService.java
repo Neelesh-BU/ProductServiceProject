@@ -14,7 +14,7 @@ import org.springframework.web.client.RestTemplate;
 import java.util.ArrayList;
 import java.util.List;
 
-@Service
+@Service("fakeStoreProductService")
 public class FakeStoreProductService implements ProductService {
     private final HttpServletResponse httpServletResponse;
     private RestTemplate restTemplate;
@@ -34,7 +34,7 @@ public class FakeStoreProductService implements ProductService {
 
 
         Category category = new Category();
-        category.setDesc(dto.getCategory());
+        category.setTitle(dto.getCategory());
         product.setCategory(category);
 
         return product;
@@ -79,6 +79,11 @@ public class FakeStoreProductService implements ProductService {
     }
 
     @Override
+    public Product updateProduct(Long id, Product product) {
+        return null;
+    }
+
+    @Override
     public Product replaceProduct(Long id, Product product) {
         FakeStoreProductDto fakeStoreProductDto = new FakeStoreProductDto();
         fakeStoreProductDto.setTitle(product.getTitle());
@@ -94,5 +99,15 @@ public class FakeStoreProductService implements ProductService {
                 restTemplate.execute("https://fakestoreapi.com/products/" + id, HttpMethod.PUT, requestCallback, responseExtractor);
 
         return convertFakeStoreDTOToProduct(response);
+    }
+
+    @Override
+    public Product createProduct(Product product) {
+        return null;
+    }
+
+    @Override
+    public void deleteProduct() {
+
     }
 }

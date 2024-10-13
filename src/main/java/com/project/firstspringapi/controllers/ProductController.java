@@ -3,6 +3,7 @@ package com.project.firstspringapi.controllers;
 import com.project.firstspringapi.exceptions.ProductNotFoundException;
 import com.project.firstspringapi.models.Product;
 import com.project.firstspringapi.services.ProductService;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
@@ -17,7 +18,7 @@ import java.util.List;
 public class ProductController {
     private ProductService productService;
 
-    public ProductController(ProductService productService) {
+    public ProductController(@Qualifier("selfProductService") ProductService productService) {
         this.productService = productService;
     }
 
