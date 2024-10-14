@@ -57,8 +57,8 @@ public class SelfProductService implements ProductService {
 
         if (category.getId() == null) {
             //we need to save the category
-            Category savedCategory = categoryRepository.save(category);
-            product.setCategory(savedCategory);
+//            Category savedCategory = categoryRepository.save(category);
+//            product.setCategory(savedCategory);
         } else {
             //we should check if the category id is valid or not.
         }

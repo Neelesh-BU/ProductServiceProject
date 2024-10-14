@@ -29,23 +29,23 @@ class FirstSpringApiApplicationTests {
 	@Test
 	@Transactional
 	public void testTC(){
-		Optional<Category> optionalCategory = categoryRepository.findById(1L);
-
-		Category category = optionalCategory.get();
-
-		System.out.println("Fetching products related to the above category");
-		List<Product> products = category.getProducts();
-		// System.out.println(products.get(0).getTitle());
-
-		ProductWithTitleAndDescription productWithTitleAndDescription = productRepository.somerandomQuery(1L);
-
-		System.out.println(productWithTitleAndDescription.getTitle());
-		System.out.println(productWithTitleAndDescription.getDescription());
-
-		ProductWithTitleAndDescription product = productRepository.somerandomQuery(2L);
-		System.out.println(product.getTitle());
-		System.out.println(product.getDescription());
-		System.out.println("DEBUG");
+//		Optional<Category> optionalCategory = categoryRepository.findById(1L);
+//
+//		Category category = optionalCategory.get();
+//
+//		System.out.println("Fetching products related to the above category");
+//		List<Product> products = category.getProducts();
+//		// System.out.println(products.get(0).getTitle());
+//
+//		ProductWithTitleAndDescription productWithTitleAndDescription = productRepository.somerandomQuery(1L);
+//
+//		System.out.println(productWithTitleAndDescription.getTitle());
+//		System.out.println(productWithTitleAndDescription.getDescription());
+//
+//		ProductWithTitleAndDescription product = productRepository.somerandomQuery(2L);
+//		System.out.println(product.getTitle());
+//		System.out.println(product.getDescription());
+//		System.out.println("DEBUG");
 	}
 
 }
